@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
@@ -21,7 +22,9 @@ app.use(express.json());
 // rutas
 app.use('/api/auth', require('./routes/authRoute'));  // disponibiliza: './routes/auth' -  en la ruta: '/api/auth'
 app.use('/api/events', require('./routes/eventsRoute'));  // disponibiliza: './routes/events' -  en la ruta: '/api/events'
-app.get('*', (req, res) => { res.sendFile(path.resolve(__dirname, 'public', 'index.html'));});
+app.get('*', ( req, res ) => {
+    res.sendFile( path.join( __dirname+'/public/index.html' ) );
+});
 
 // TODO: CRUD eventos
 
