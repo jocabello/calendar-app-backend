@@ -21,7 +21,7 @@ app.use(express.json());
 // rutas
 app.use('/api/auth', require('./routes/authRoute'));  // disponibiliza: './routes/auth' -  en la ruta: '/api/auth'
 app.use('/api/events', require('./routes/eventsRoute'));  // disponibiliza: './routes/events' -  en la ruta: '/api/events'
-
+app.use('/login', express.static('public'));
 
 // TODO: CRUD eventos
 
